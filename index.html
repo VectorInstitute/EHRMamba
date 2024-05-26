@@ -253,7 +253,7 @@
       </div>
 
       <div class="content is-size-5-5  has-text-justified" style="margin-top:20px; margin-bottom:-25px;">
-        <p><strong>Multitask Prompted Finetuning (MPF).</strong> We introduce MPF for HER, enabling a single finetuned model to efficiently handle multiple clinical tasks. By replacing the first ([CLS]) and last ([REG]) tokens of a patient sequence with task-specific tokens (e.g., [MOR] for mortality prediction), the model can use the same patient sequence data for various tasks. This approach embeds task-specific information at the input level, enhancing task-specific processing and generalization. MPF simplifies deployment and maintenance by reducing the need for multiple classification heads, streamlining the addition of new tasks, and ensuring compatibility with frameworks like HuggingFace.</p>
+        <p><strong>Multitask Prompted Finetuning (MPF).</strong> We introduce MPF for EHR, enabling a single finetuned model to efficiently handle multiple clinical tasks. By replacing the first ([CLS]) and last ([REG]) tokens of a patient sequence with task-specific tokens (e.g., [MOR] for mortality prediction), the model can use the same patient sequence data for various tasks. This approach embeds task-specific information at the input level, enhancing task-specific processing and generalization. MPF simplifies deployment and maintenance by reducing the need for multiple classification heads, streamlining the addition of new tasks, and ensuring compatibility with frameworks like HuggingFace.</p>
       </div>
     </div>
   </section>
