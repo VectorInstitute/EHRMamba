@@ -1,0 +1,122 @@
+:root {
+    /* Define color variables */
+    --border-gray: #ccc;
+    --background-light-gray: #f0f0f0;
+    --background-hover-gray: #d9d9d9;
+    --patient-button-background: #e0e0e0; 
+    --patient-button-hover: #c0c0c0;
+    --cyan: rgb(0, 206, 161);
+    --magenta: rgb(255, 0, 115);
+    --tooltip-background: rgb(48, 231, 255);
+    --font-family: 'Google Sans';
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+}
+
+#patient-list {
+    width: 18%;
+    border-right: 1px solid var(--border-gray);
+    padding: 20px;
+    list-style-type: none;
+    margin: 0;
+}
+
+#patient-list li {
+    cursor: pointer;
+    padding: 10px;
+    background-color: var(--patient-button-background);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    margin-left: -20px;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+#patient-list li:hover {
+    background-color: var(--patient-button-hover);
+}
+
+#patient-list li.selected {
+    background-color: var(--cyan);
+    color: white;
+}
+
+#event-timeline {
+    width: 100%;
+    padding: 1px;
+    position: relative;
+}
+
+.event-rect, .actual-rect {
+    fill: var(--cyan);
+}
+
+.predicted-rect {
+    fill: var(--magenta);
+}
+
+.event-label, .branch-label {
+    font-size: 17px;
+    fill: black;
+    writing-mode: vertical-rl;
+    text-anchor: end;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    font: 18px var(--font-family);
+    background: var(--tooltip-background);
+    color: black;
+    border: 10px;
+    border-radius: 8px;
+    pointer-events: none;
+    box-shadow: 0px 0px 5px #ffffff;
+}
+
+.main-line {
+    stroke: var(--cyan);
+    stroke-width: 2;
+}
+
+.cutoff-line-up, .actual-line, .actual-line-vertical{
+    stroke: var(--cyan);
+    stroke-width: 2;
+}
+
+.cutoff-line-up, .cutoff-line-down {
+    stroke-dasharray: 10,10;
+}
+
+.cutoff-line-down, .predicted-line, .predicted-line-vertical {
+    stroke: var(--magenta);
+    stroke-width: 2;
+}
+
+.legend {
+    font-size: 16px;
+}
+
+.actual-label, .predicted-label {
+    font-size: 18px;
+    font-weight: bold;
+    fill: black;
+}
+
+.cutoff-label {
+    text-anchor: middle;
+    font-size: 16px;
+}
+
+#arrow {
+    marker-end: url(#arrow);
+}
