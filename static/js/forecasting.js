@@ -24,15 +24,15 @@ function updateTimeline(patientId) {
     svg.append('line')
         .attr('class', 'time-arrow')
         .attr('x1', 40)
-        .attr('y1', 620)
+        .attr('y1', 670)
         .attr('x2', 970)
-        .attr('y2', 620)
+        .attr('y2', 670)
         .attr('stroke', 'black')
         .attr('marker-end', 'url(#arrow)'); 
 
     svg.append('text')
         .attr('x', 1015)
-        .attr('y', 620)
+        .attr('y', 670)
         .attr('text-anchor', 'end')
         .attr('alignment-baseline', 'middle')
         .text('Time');
@@ -54,9 +54,9 @@ function updateTimeline(patientId) {
     svg.append('line')
         .attr('class', 'main-line')
         .attr('x1', 50)
-        .attr('y1', 350)
+        .attr('y1', 400)
         .attr('x2', xScale(cutoffTime))
-        .attr('y2', 350)
+        .attr('y2', 400)
         .attr('stroke', 'black');
 
     // Event rectangles and labels for events before the cutoff time
@@ -66,7 +66,7 @@ function updateTimeline(patientId) {
         .append('rect')
         .attr('class', 'event-rect')
         .attr('x', d => xScale(d.time) - 10)
-        .attr('y', 325)
+        .attr('y', 375)
         .attr('width', 20)
         .attr('height', 50)
         .on('mouseover', function (event, d) {
@@ -89,29 +89,29 @@ function updateTimeline(patientId) {
         .append('text')
         .attr('class', 'event-label')
         .attr('x', d => xScale(d.time))
-        .attr('y', 310)
+        .attr('y', 360)
         .text(d => d.event);
 
     // Cutoff line and label
     svg.append('line')
         .attr('class', 'cutoff-line-up')
         .attr('x1', xScale(cutoffTime))
-        .attr('y1', 200)
+        .attr('y1', 250)
         .attr('x2', xScale(cutoffTime))
-        .attr('y2', 350)
+        .attr('y2', 400)
         .attr('stroke-dasharray', '4,4');
     
     svg.append('line')
         .attr('class', 'cutoff-line-down')
         .attr('x1', xScale(cutoffTime))
-        .attr('y1', 350)
+        .attr('y1', 400)
         .attr('x2', xScale(cutoffTime))
-        .attr('y2', 500)
+        .attr('y2', 550)
         .attr('stroke-dasharray', '4,4');
 
     svg.append('text')
         .attr('x', xScale(cutoffTime) + 35)
-        .attr('y', 353)
+        .attr('y', 403)
         .attr('class', 'cutoff-label')
         .text('Cutoff');
 
@@ -122,9 +122,9 @@ function updateTimeline(patientId) {
         .append('line')
         .attr('class', 'actual-line')
         .attr('x1', xScale(cutoffTime))
-        .attr('y1', 200)
+        .attr('y1', 250)
         .attr('x2', d => xScale(d.time))
-        .attr('y2', 200)
+        .attr('y2', 250)
         .attr('marker-end', 'url(#arrow)');
 
     svg.selectAll('.actual-line-vertical')
@@ -133,9 +133,9 @@ function updateTimeline(patientId) {
         .append('line')
         .attr('class', 'actual-line-vertical')
         .attr('x1', d => xScale(d.time))
-        .attr('y1', 200)
+        .attr('y1', 250)
         .attr('x2', d => xScale(d.time))
-        .attr('y2', 230);
+        .attr('y2', 250);
 
     svg.selectAll('.actual-rect')
         .data(events.actual)
@@ -143,7 +143,7 @@ function updateTimeline(patientId) {
         .append('rect')
         .attr('class', 'actual-rect')
         .attr('x', d => xScale(d.time) - 10)
-        .attr('y', 170)
+        .attr('y', 220)
         .attr('width', 20)
         .attr('height', 60)
         .on('mouseover', function (event, d) {
@@ -166,12 +166,12 @@ function updateTimeline(patientId) {
         .append('text')
         .attr('class', 'branch-label')
         .attr('x', d => xScale(d.time))
-        .attr('y', 160)
+        .attr('y', 210)
         .text(d => d.event);
     
     svg.append('text')
         .attr('x', xScale(cutoffTime) - 10)
-        .attr('y', 180)
+        .attr('y', 230)
         .attr('text-anchor', 'middle')
         .attr('class', 'actual-label')
         .text('Actual');
@@ -183,9 +183,9 @@ function updateTimeline(patientId) {
         .append('line')
         .attr('class', 'predicted-line')
         .attr('x1', xScale(cutoffTime))
-        .attr('y1', 500)
+        .attr('y1', 550)
         .attr('x2', d => xScale(d.time))
-        .attr('y2', 500)
+        .attr('y2', 550)
         .attr('marker-end', 'url(#arrow)');
 
     svg.selectAll('.predicted-line-vertical')
@@ -194,9 +194,9 @@ function updateTimeline(patientId) {
         .append('line')
         .attr('class', 'predicted-line-vertical')
         .attr('x1', d => xScale(d.time))
-        .attr('y1', 500)
+        .attr('y1', 550)
         .attr('x2', d => xScale(d.time))
-        .attr('y2', 470)
+        .attr('y2', 520)
         .attr('stroke', 'black');
 
     svg.selectAll('.predicted-rect')
@@ -205,7 +205,7 @@ function updateTimeline(patientId) {
         .append('rect')
         .attr('class', 'predicted-rect')
         .attr('x', d => xScale(d.time) - 10)
-        .attr('y', 470)
+        .attr('y', 520)
         .attr('width', 20)
         .attr('height', 60)
         .on('mouseover', function (event, d) {
@@ -228,12 +228,12 @@ function updateTimeline(patientId) {
         .append('text')
         .attr('class', 'branch-label')
         .attr('x', d => xScale(d.time))
-        .attr('y', 460)
+        .attr('y', 510)
         .text(d => d.event);
     
     svg.append('text')
         .attr('x', xScale(cutoffTime) - 10)
-        .attr('y', 530)
+        .attr('y', 580)
         .attr('text-anchor', 'middle')
         .attr('class', 'predicted-label')
         .text('Predicted');

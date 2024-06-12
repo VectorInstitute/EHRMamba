@@ -4,11 +4,9 @@
 export const patients = [
     { id: 1, name: 'Patient 1' },
     { id: 2, name: 'Patient 2' },
-    // { id: 3, name: 'Patient 3' },
 ];
 
 export const patientEvents = {
-
     1: {
         cutoffTime: 10,
         beforeCutoff: [
@@ -28,35 +26,28 @@ export const patientEvents = {
     },
 
     2: {
-        cutoffTime: 15,
+        cutoffTime: 20,
         beforeCutoff: [
-            { time: 0, event: 'Mild Fever' },
-            { time: 5, event: 'Elevated Heart Rate' },
-            { time: 10, event: 'Low Sodium Levels' },
+            { time: 0, event: 'Repair Of Obstetric Lacerations' },
+            { time: 5, event: 'Codeine Phosphate (Pain Killer)' },
+            { time: 10, event: 'Acetaminophen' },
+            { time: 15, event: 'Ibuprofen' },
         ],
         actual: [
-            { time: 20, event: 'Severe Dehydration' },
-            { time: 25, event: 'Hypertension' },
+            { time: 25, event: 'Platelet Count Very High' },
+            { time: 30, event: 'RDW Very Low' },
+            { time: 35, event: 'Red Blood Cells High' },
+            { time: 40, event: 'White Blood Cells Medium' },
+            { time: 45, event: 'Anion Gap Medium' },
+            { time: 50, event: 'Bicarbonate Very Low' },
         ],
         predicted: [
-            { time: 20, event: 'Moderate Dehydration' },
-            { time: 25, event: 'High Blood Pressure' },
+            { time: 25, event: 'Platelet Count Very High' },
+            { time: 30, event: 'RDW Very Low' },
+            { time: 35, event: 'Red Blood Cells High' },
+            { time: 40, event: 'White Blood Cells Low' },
+            { time: 45, event: 'Anion Gap Medium' },
+            { time: 50, event: 'Bicarbonate Medium' },
         ]
     },
-
-    // 3: {
-    //     cutoffTime: 15,
-    //     beforeCutoff: [
-    //         { time: 0, event: 'Event A' },
-    //         { time: 5, event: 'Event B' },
-    //         { time: 10, event: 'Event C' },
-    //     ],
-    //     actual: [
-    //         { time: 20, event: 'Actual D' },
-    //     ],
-    //     predicted: [
-    //         { time: 20, event: 'Predicted D' },
-    //     ]
-    // },
-
 };
