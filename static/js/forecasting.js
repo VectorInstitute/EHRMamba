@@ -19,6 +19,16 @@ function updateTimeline(patientId) {
     const xScale = d3.scaleLinear()
         .domain([0, d3.max([...events.beforeCutoff, ...events.actual, ...events.predicted], d => d.time)])
         .range([50, 1000]);
+    
+    const getClassByType = (type) => {
+        switch (type) {
+            case 'Medication': return 'medication';
+            case 'Lab Test': return 'lab-test';
+            case 'Procedure': return 'procedure';
+            case 'Special Token': return 'special-token';
+            default: return '';
+        }
+    };
 
     // Time arrow and label
     svg.append('line')
@@ -73,7 +83,17 @@ function updateTimeline(patientId) {
             tooltip.transition()
                 .duration(100)
                 .style('opacity', .9);
-            tooltip.html(d.event)
+            
+            let tooltipContent = `<div class="tooltip-wrapper">
+                                    <div class="tooltip-type">${d.type}</div>
+                                    <div class="tooltip-event">${d.event}</div>`;
+            if (d.description) {
+                tooltipContent += `<div class="tooltip-description">${d.description}</div>`;
+            }
+            tooltipContent += `</div>`;
+            
+            tooltip.html(tooltipContent)
+                .attr('class', `tooltip ${getClassByType(d.type)}`)
                 .style('left', (event.pageX + 5) + 'px')
                 .style('top', (event.pageY - 28) + 'px');
         })
@@ -150,7 +170,17 @@ function updateTimeline(patientId) {
             tooltip.transition()
                 .duration(100)
                 .style('opacity', .9);
-            tooltip.html(d.event)
+            
+            let tooltipContent = `<div class="tooltip-wrapper">
+                                    <div class="tooltip-type">${d.type}</div>
+                                    <div class="tooltip-event">${d.event}</div>`;
+            if (d.description) {
+                tooltipContent += `<div class="tooltip-description">${d.description}</div>`;
+            }
+            tooltipContent += `</div>`;
+            
+            tooltip.html(tooltipContent)
+                .attr('class', `tooltip ${getClassByType(d.type)}`)
                 .style('left', (event.pageX + 5) + 'px')
                 .style('top', (event.pageY - 28) + 'px');
         })
@@ -210,9 +240,19 @@ function updateTimeline(patientId) {
         .attr('height', 60)
         .on('mouseover', function (event, d) {
             tooltip.transition()
-                .duration(200)
+                .duration(100)
                 .style('opacity', .9);
-            tooltip.html(d.event)
+            
+            let tooltipContent = `<div class="tooltip-wrapper">
+                                    <div class="tooltip-type">${d.type}</div>
+                                    <div class="tooltip-event">${d.event}</div>`;
+            if (d.description) {
+                tooltipContent += `<div class="tooltip-description">${d.description}</div>`;
+            }
+            tooltipContent += `</div>`;
+            
+            tooltip.html(tooltipContent)
+                .attr('class', `tooltip ${getClassByType(d.type)}`)
                 .style('left', (event.pageX + 5) + 'px')
                 .style('top', (event.pageY - 28) + 'px');
         })
@@ -234,7 +274,6 @@ function updateTimeline(patientId) {
     svg.append('text')
         .attr('x', xScale(cutoffTime) - 10)
         .attr('y', 580)
-        .attr('text-anchor', 'middle')
         .attr('class', 'predicted-label')
         .text('Predicted');
 

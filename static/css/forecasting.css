@@ -9,6 +9,18 @@
     --magenta: rgb(255, 0, 115);
     --tooltip-background: rgb(48, 231, 255);
     --font-family: 'Google Sans';
+
+    --medication-color: #0091ff;
+    --medication-background: #d0eaff;
+    
+    --lab-test-color: #00bd94;
+    --lab-test-background: #ccfff5;
+
+    --procedure-color: #ff003c;
+    --procedure-background: #ffd5e5;
+
+    --special-token-color: #ffa600;
+    --special-token-background: #fff3dc;
 }
 
 body {
@@ -61,13 +73,6 @@ body {
     fill: var(--magenta);
 }
 
-.event-label, .branch-label {
-    font-size: 17px;
-    fill: black;
-    writing-mode: vertical-rl;
-    text-anchor: end;
-}
-
 .tooltip {
     position: absolute;
     text-align: center;
@@ -75,12 +80,78 @@ body {
     height: auto;
     padding: 10px;
     font: 18px var(--font-family);
-    background: var(--tooltip-background);
+    font-weight: 600;
     color: black;
-    border: 10px;
     border-radius: 8px;
     pointer-events: none;
     box-shadow: 0px 0px 5px #ffffff;
+    border-width: 2px;
+    border-style: solid;
+    max-width: 500px;
+    word-wrap: break-word;
+}
+
+.tooltip-wrapper {
+    position: relative;
+    padding-top: 5px;
+}
+
+.tooltip-type {
+    position: absolute;
+    top: -20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+
+.tooltip-description {
+    font-size: 16px;
+    margin-top: 8px;
+    color: black;
+    font-weight: normal;
+}
+
+.tooltip.medication {
+    border-color: var(--medication-color);
+    background: var(--medication-background);
+}
+
+.tooltip.medication .tooltip-type {
+    color: var(--medication-color);
+    background: var(--medication-background);
+}
+
+.tooltip.lab-test {
+    border-color: var(--lab-test-color);
+    background: var(--lab-test-background);
+}
+
+.tooltip.lab-test .tooltip-type {
+    color: var(--lab-test-color);
+    background: var(--lab-test-background);
+}
+
+.tooltip.procedure {
+    border-color: var(--procedure-color);
+    background: var(--procedure-background);
+}
+
+.tooltip.procedure .tooltip-type {
+    color: var(--procedure-color);
+    background: var(--procedure-background);
+}
+
+.tooltip.special-token {
+    border-color: var(--special-token-color);
+    background: var(--special-token-background);
+}
+
+.tooltip.special-token .tooltip-type {
+    color: var(--special-token-color);
+    background: var(--special-token-background);
 }
 
 .main-line {
@@ -88,13 +159,13 @@ body {
     stroke-width: 2;
 }
 
-.cutoff-line-up, .actual-line, .actual-line-vertical{
+.cutoff-line-up, .actual-line, .actual-line-vertical {
     stroke: var(--cyan);
     stroke-width: 2;
 }
 
 .cutoff-line-up, .cutoff-line-down {
-    stroke-dasharray: 10,10;
+    stroke-dasharray: 10, 10;
 }
 
 .cutoff-line-down, .predicted-line, .predicted-line-vertical {
@@ -110,6 +181,15 @@ body {
     font-size: 18px;
     font-weight: bold;
     fill: black;
+    text-anchor: middle;
+}
+
+.event-label, .branch-label {
+    font-size: 17px;
+    fill: black;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-anchor: end;
 }
 
 .cutoff-label {
