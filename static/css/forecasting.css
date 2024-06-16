@@ -17,7 +17,7 @@
     --lab-test-background: #ccfff5;
 
     --procedure-color: #ff003c;
-    --procedure-background: #ffd5e5;
+    --procedure-background: #ffcbdf;
 
     --special-token-color: #ffa600;
     --special-token-background: #fff3dc;
@@ -87,7 +87,7 @@ body {
     box-shadow: 0px 0px 5px #ffffff;
     border-width: 2px;
     border-style: solid;
-    max-width: 500px;
+    max-width: 520px;
     word-wrap: break-word;
 }
 

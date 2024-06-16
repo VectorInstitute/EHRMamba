@@ -5,6 +5,7 @@ export const patients = [
     { id: 3, name: 'Patient 3' },
     { id: 4, name: 'Patient 4' },
     { id: 5, name: 'Patient 5' },
+    { id: 6, name: 'Patient 6' },
 ];
 
 export const patientEvents = {
@@ -120,8 +121,8 @@ export const patientEvents = {
             { time: 40, event: '[VS]', type: 'Special Token', description: 'Indicates the start of a visit' },
             { time: 45, event: 'LSG Surgery', type: 'Procedure', description: 'Laparoscopic Sleeve Gastrectomy, a weight-loss surgery that involves removing a large part of the stomach' },
             { time: 50, event: 'Very High Hematocrit', type: 'Lab Test', description: 'Very high proportion of red blood cells in the blood' },
-            { time: 55, event: 'Glucagon Hydrochloride', type: 'Medication', description: 'A medication used to treat severe hypoglycemia (low blood sugar)' },
-            { time: 60, event: 'Dextrose', type: 'Medication', description: 'A form of glucose (sugar) used to treat low blood sugar' },
+            { time: 55, event: 'Glucagon Hydrochloride', type: 'Medication', description: 'A medication used to treat severe hypoglycemia (low blood sugar) and slows down movement of the stomach' },
+            { time: 60, event: 'Dextrose', type: 'Medication', description: 'A form of glucose used to treat dehydration and low blood sugar' },
         ],
         predicted: [
             { time: 40, event: '[VS]', type: 'Special Token', description: 'Indicates the start of a visit' },
@@ -130,5 +131,35 @@ export const patientEvents = {
             { time: 55, event: 'Very High Red Blood Cells', type: 'Lab Test', description: 'Very high number of red blood cells in the blood' },
             { time: 60, event: 'Very High Hematocrit', type: 'Lab Test', description: 'Very high proportion of red blood cells in the blood' },
         ]
+    },
+
+    6: {
+        cutoffTime: 15,
+        beforeCutoff: [
+            { time: 0, event: '[CLS]', type: 'Special Token', description: 'Start of sequence' },
+            { time: 5, event: '[VS]', type: 'Special Token', description: 'Indicates the start of a visit' },
+            { time: 10, event: 'Angiocardiography Of Left Heart', type: 'Procedure', description: 'Imaging technique to visualize the left heart structures' },
+        ],
+        actual: [
+            { time: 20, event: 'Cardiac Catheterization', type: 'Procedure', description: 'Procedure to examine how well the heart is working' },
+            { time: 25, event: 'Coronary Arteriography', type: 'Procedure', description: 'Imaging test that uses X-rays to take pictures of the blood vessels of the heart' },
+            { time: 30, event: 'Atropine Sulfate', type: 'Medication', description: 'Medication used to treat bradycardia and for preanesthesia' },
+            { time: 35, event: 'Allergy Relief', type: 'Medication', description: 'Medication to relieve allergy symptoms' },
+            { time: 40, event: 'Heparin', type: 'Medication', description: 'An anticoagulant (blood thinner) that prevents the formation of blood clots' },
+            { time: 45, event: 'Metoprolol Tartrate', type: 'Medication', description: 'Medication used to treat high blood pressure and angina' },
+            { time: 50, event: 'Very High Hematocrit', type: 'Lab Test', description: 'High proportion of red blood cells in the blood' },
+            { time: 55, event: 'Low Urea Nitrogen', type: 'Lab Test', description: 'Low amount of nitrogen in urea, which can indicate liver dysfunction or a high-protein diet' },
+        ],
+        predicted: [
+            { time: 20, event: 'Cardiac Catheterization', type: 'Procedure', description: 'Procedure to examine how well the heart is working' },
+            { time: 25, event: 'Coronary Arteriography', type: 'Procedure', description: 'Imaging test that uses X-rays to take pictures of the blood vessels of the heart' },
+            { time: 30, event: 'Very High Red Blood Cells', type: 'Lab Test', description: 'High number of red blood cells in the blood' },
+            { time: 35, event: 'Very Low RDW', type: 'Lab Test', description: 'Low Red Cell Distribution Width (RDW) indicating uniformity in red blood cell size or volume' },
+            { time: 40, event: 'High Platelet Count', type: 'Lab Test', description: 'High number of platelets in the blood' },
+            { time: 45, event: 'Very High Hemoglobin', type: 'Lab Test', description: 'High levels of hemoglobin in the blood' },
+            { time: 50, event: 'Very High Hematocrit', type: 'Lab Test', description: 'High proportion of red blood cells in the blood' },
+            { time: 55, event: 'Very High Fibrinogen', type: 'Lab Test', description: 'High levels of functional fibrinogen in the blood' },
+        ]
     }
+    
 };
